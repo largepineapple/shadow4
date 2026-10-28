@@ -1,0 +1,776 @@
+{
+  "case_id": "script-changed_source",
+  "mode": "mock",
+  "model": "deterministic-mock-no-LLM",
+  "started_at": "2026-10-28T15:38:45.386987+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕功能介绍"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "字幕功能介绍",
+          "hits": [
+            {
+              "id": "P01",
+              "version_date": "2026-10-20",
+              "title": "Orion字幕功能素材（合成）",
+              "keywords": [
+                "字幕",
+                "subtitle",
+                "caption",
+                "P01"
+              ],
+              "facts": [
+                {
+                  "id": "F01",
+                  "text": "支持手动添加字幕"
+                }
+              ],
+              "asset_description": "合成字幕样例；不包含效果统计或自动识别能力说明。"
+            }
+          ],
+          "total_matches": 1
+        },
+        "error": null
+      },
+      "next_action": "estimate_duration",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "estimate_duration",
+      "arguments": {
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "支持手动添加字幕",
+              "subtitle": "支持手动添加字幕",
+              "hold_seconds": 8,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "支持手动添加字幕",
+              "subtitle": "支持手动添加字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S3",
+              "visual": "展示带字幕的合成画面",
+              "narration": "支持手动添加字幕",
+              "subtitle": "支持手动添加字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        }
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+          "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+          "scene_timings": [
+            {
+              "scene_id": "S1",
+              "narration_seconds": 2,
+              "subtitle_seconds": 2,
+              "hold_seconds": 8,
+              "estimated_seconds": 8
+            },
+            {
+              "scene_id": "S2",
+              "narration_seconds": 2,
+              "subtitle_seconds": 2,
+              "hold_seconds": 9,
+              "estimated_seconds": 9
+            },
+            {
+              "scene_id": "S3",
+              "narration_seconds": 2,
+              "subtitle_seconds": 2,
+              "hold_seconds": 9,
+              "estimated_seconds": 9
+            }
+          ],
+          "transition_seconds": 2,
+          "estimated_total_seconds": 28,
+          "target_seconds": 30,
+          "over_by_seconds": 0,
+          "passed": true,
+          "brand_minimum_seconds": 9
+        },
+        "error": null
+      },
+      "next_action": "check_rules",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "check_rules",
+      "arguments": {
+        "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+          "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+          "passed": true,
+          "risks": [],
+          "source_citations": [
+            {
+              "scene_id": "S1",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            },
+            {
+              "scene_id": "S2",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            },
+            {
+              "scene_id": "S3",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "finalize_script",
+      "decision_basis": ""
+    },
+    {
+      "step": 4,
+      "action": "finalize_script",
+      "arguments": {
+        "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+        "mode": "ready",
+        "decision_basis": "This exact draft passed duration and source/brand checks"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "script-changed_source",
+          "status": "completed",
+          "approved": true,
+          "script": {
+            "title": "字幕功能演示",
+            "scenes": [
+              {
+                "id": "S1",
+                "visual": "展示提供的字幕样例",
+                "narration": "支持手动添加字幕",
+                "subtitle": "支持手动添加字幕",
+                "hold_seconds": 8,
+                "source_id": "P01",
+                "fact_id": "F01",
+                "estimated_seconds": 8,
+                "source_citation": {
+                  "scene_id": "S1",
+                  "source_id": "P01",
+                  "fact_id": "F01",
+                  "version_date": "2026-10-20",
+                  "quote": "支持手动添加字幕",
+                  "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+                }
+              },
+              {
+                "id": "S2",
+                "visual": "近景展示字幕文字",
+                "narration": "支持手动添加字幕",
+                "subtitle": "支持手动添加字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01",
+                "estimated_seconds": 9,
+                "source_citation": {
+                  "scene_id": "S2",
+                  "source_id": "P01",
+                  "fact_id": "F01",
+                  "version_date": "2026-10-20",
+                  "quote": "支持手动添加字幕",
+                  "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+                }
+              },
+              {
+                "id": "S3",
+                "visual": "展示带字幕的合成画面",
+                "narration": "支持手动添加字幕",
+                "subtitle": "支持手动添加字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01",
+                "estimated_seconds": 9,
+                "source_citation": {
+                  "scene_id": "S3",
+                  "source_id": "P01",
+                  "fact_id": "F01",
+                  "version_date": "2026-10-20",
+                  "quote": "支持手动添加字幕",
+                  "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+                }
+              }
+            ]
+          },
+          "estimated_total_seconds": 28,
+          "target_seconds": 30,
+          "source_citations": [
+            {
+              "scene_id": "S1",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            },
+            {
+              "scene_id": "S2",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            },
+            {
+              "scene_id": "S3",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            }
+          ],
+          "risks": [],
+          "knowledge_gaps": [],
+          "duration_check": {
+            "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+            "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+            "scene_timings": [
+              {
+                "scene_id": "S1",
+                "narration_seconds": 2,
+                "subtitle_seconds": 2,
+                "hold_seconds": 8,
+                "estimated_seconds": 8
+              },
+              {
+                "scene_id": "S2",
+                "narration_seconds": 2,
+                "subtitle_seconds": 2,
+                "hold_seconds": 9,
+                "estimated_seconds": 9
+              },
+              {
+                "scene_id": "S3",
+                "narration_seconds": 2,
+                "subtitle_seconds": 2,
+                "hold_seconds": 9,
+                "estimated_seconds": 9
+              }
+            ],
+            "transition_seconds": 2,
+            "estimated_total_seconds": 28,
+            "target_seconds": 30,
+            "over_by_seconds": 0,
+            "passed": true,
+            "brand_minimum_seconds": 9
+          },
+          "rule_check": {
+            "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+            "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+            "passed": true,
+            "risks": [],
+            "source_citations": [
+              {
+                "scene_id": "S1",
+                "source_id": "P01",
+                "fact_id": "F01",
+                "version_date": "2026-10-20",
+                "quote": "支持手动添加字幕",
+                "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+              },
+              {
+                "scene_id": "S2",
+                "source_id": "P01",
+                "fact_id": "F01",
+                "version_date": "2026-10-20",
+                "quote": "支持手动添加字幕",
+                "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+              },
+              {
+                "scene_id": "S3",
+                "source_id": "P01",
+                "fact_id": "F01",
+                "version_date": "2026-10-20",
+                "quote": "支持手动添加字幕",
+                "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+              }
+            ]
+          },
+          "last_draft": {
+            "title": "字幕功能演示",
+            "scenes": [
+              {
+                "id": "S1",
+                "visual": "展示提供的字幕样例",
+                "narration": "支持手动添加字幕",
+                "subtitle": "支持手动添加字幕",
+                "hold_seconds": 8,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S2",
+                "visual": "近景展示字幕文字",
+                "narration": "支持手动添加字幕",
+                "subtitle": "支持手动添加字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S3",
+                "visual": "展示带字幕的合成画面",
+                "narration": "支持手动添加字幕",
+                "subtitle": "支持手动添加字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01"
+              }
+            ]
+          },
+          "draft_history": [
+            {
+              "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+              "draft": {
+                "title": "字幕功能演示",
+                "scenes": [
+                  {
+                    "id": "S1",
+                    "visual": "展示提供的字幕样例",
+                    "narration": "支持手动添加字幕",
+                    "subtitle": "支持手动添加字幕",
+                    "hold_seconds": 8,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  },
+                  {
+                    "id": "S2",
+                    "visual": "近景展示字幕文字",
+                    "narration": "支持手动添加字幕",
+                    "subtitle": "支持手动添加字幕",
+                    "hold_seconds": 9,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  },
+                  {
+                    "id": "S3",
+                    "visual": "展示带字幕的合成画面",
+                    "narration": "支持手动添加字幕",
+                    "subtitle": "支持手动添加字幕",
+                    "hold_seconds": 9,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  }
+                ]
+              },
+              "duration_check": {
+                "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+                "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+                "scene_timings": [
+                  {
+                    "scene_id": "S1",
+                    "narration_seconds": 2,
+                    "subtitle_seconds": 2,
+                    "hold_seconds": 8,
+                    "estimated_seconds": 8
+                  },
+                  {
+                    "scene_id": "S2",
+                    "narration_seconds": 2,
+                    "subtitle_seconds": 2,
+                    "hold_seconds": 9,
+                    "estimated_seconds": 9
+                  },
+                  {
+                    "scene_id": "S3",
+                    "narration_seconds": 2,
+                    "subtitle_seconds": 2,
+                    "hold_seconds": 9,
+                    "estimated_seconds": 9
+                  }
+                ],
+                "transition_seconds": 2,
+                "estimated_total_seconds": 28,
+                "target_seconds": 30,
+                "over_by_seconds": 0,
+                "passed": true,
+                "brand_minimum_seconds": 9
+              },
+              "rule_check": {
+                "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+                "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+                "passed": true,
+                "risks": [],
+                "source_citations": [
+                  {
+                    "scene_id": "S1",
+                    "source_id": "P01",
+                    "fact_id": "F01",
+                    "version_date": "2026-10-20",
+                    "quote": "支持手动添加字幕",
+                    "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+                  },
+                  {
+                    "scene_id": "S2",
+                    "source_id": "P01",
+                    "fact_id": "F01",
+                    "version_date": "2026-10-20",
+                    "quote": "支持手动添加字幕",
+                    "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+                  },
+                  {
+                    "scene_id": "S3",
+                    "source_id": "P01",
+                    "fact_id": "F01",
+                    "version_date": "2026-10-20",
+                    "quote": "支持手动添加字幕",
+                    "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+                  }
+                ]
+              }
+            }
+          ],
+          "tool_errors": [],
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "This exact draft passed duration and source/brand checks"
+    }
+  ],
+  "published": false,
+  "materials": "changed.json",
+  "final_status": "completed",
+  "finished_at": "2026-10-28T15:38:45.389969+00:00",
+  "result": {
+    "request_id": "script-changed_source",
+    "status": "completed",
+    "approved": true,
+    "script": {
+      "title": "字幕功能演示",
+      "scenes": [
+        {
+          "id": "S1",
+          "visual": "展示提供的字幕样例",
+          "narration": "支持手动添加字幕",
+          "subtitle": "支持手动添加字幕",
+          "hold_seconds": 8,
+          "source_id": "P01",
+          "fact_id": "F01",
+          "estimated_seconds": 8,
+          "source_citation": {
+            "scene_id": "S1",
+            "source_id": "P01",
+            "fact_id": "F01",
+            "version_date": "2026-10-20",
+            "quote": "支持手动添加字幕",
+            "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+          }
+        },
+        {
+          "id": "S2",
+          "visual": "近景展示字幕文字",
+          "narration": "支持手动添加字幕",
+          "subtitle": "支持手动添加字幕",
+          "hold_seconds": 9,
+          "source_id": "P01",
+          "fact_id": "F01",
+          "estimated_seconds": 9,
+          "source_citation": {
+            "scene_id": "S2",
+            "source_id": "P01",
+            "fact_id": "F01",
+            "version_date": "2026-10-20",
+            "quote": "支持手动添加字幕",
+            "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+          }
+        },
+        {
+          "id": "S3",
+          "visual": "展示带字幕的合成画面",
+          "narration": "支持手动添加字幕",
+          "subtitle": "支持手动添加字幕",
+          "hold_seconds": 9,
+          "source_id": "P01",
+          "fact_id": "F01",
+          "estimated_seconds": 9,
+          "source_citation": {
+            "scene_id": "S3",
+            "source_id": "P01",
+            "fact_id": "F01",
+            "version_date": "2026-10-20",
+            "quote": "支持手动添加字幕",
+            "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+          }
+        }
+      ]
+    },
+    "estimated_total_seconds": 28,
+    "target_seconds": 30,
+    "source_citations": [
+      {
+        "scene_id": "S1",
+        "source_id": "P01",
+        "fact_id": "F01",
+        "version_date": "2026-10-20",
+        "quote": "支持手动添加字幕",
+        "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+      },
+      {
+        "scene_id": "S2",
+        "source_id": "P01",
+        "fact_id": "F01",
+        "version_date": "2026-10-20",
+        "quote": "支持手动添加字幕",
+        "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+      },
+      {
+        "scene_id": "S3",
+        "source_id": "P01",
+        "fact_id": "F01",
+        "version_date": "2026-10-20",
+        "quote": "支持手动添加字幕",
+        "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+      }
+    ],
+    "risks": [],
+    "knowledge_gaps": [],
+    "duration_check": {
+      "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+      "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+      "scene_timings": [
+        {
+          "scene_id": "S1",
+          "narration_seconds": 2,
+          "subtitle_seconds": 2,
+          "hold_seconds": 8,
+          "estimated_seconds": 8
+        },
+        {
+          "scene_id": "S2",
+          "narration_seconds": 2,
+          "subtitle_seconds": 2,
+          "hold_seconds": 9,
+          "estimated_seconds": 9
+        },
+        {
+          "scene_id": "S3",
+          "narration_seconds": 2,
+          "subtitle_seconds": 2,
+          "hold_seconds": 9,
+          "estimated_seconds": 9
+        }
+      ],
+      "transition_seconds": 2,
+      "estimated_total_seconds": 28,
+      "target_seconds": 30,
+      "over_by_seconds": 0,
+      "passed": true,
+      "brand_minimum_seconds": 9
+    },
+    "rule_check": {
+      "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+      "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+      "passed": true,
+      "risks": [],
+      "source_citations": [
+        {
+          "scene_id": "S1",
+          "source_id": "P01",
+          "fact_id": "F01",
+          "version_date": "2026-10-20",
+          "quote": "支持手动添加字幕",
+          "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+        },
+        {
+          "scene_id": "S2",
+          "source_id": "P01",
+          "fact_id": "F01",
+          "version_date": "2026-10-20",
+          "quote": "支持手动添加字幕",
+          "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+        },
+        {
+          "scene_id": "S3",
+          "source_id": "P01",
+          "fact_id": "F01",
+          "version_date": "2026-10-20",
+          "quote": "支持手动添加字幕",
+          "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+        }
+      ]
+    },
+    "last_draft": {
+      "title": "字幕功能演示",
+      "scenes": [
+        {
+          "id": "S1",
+          "visual": "展示提供的字幕样例",
+          "narration": "支持手动添加字幕",
+          "subtitle": "支持手动添加字幕",
+          "hold_seconds": 8,
+          "source_id": "P01",
+          "fact_id": "F01"
+        },
+        {
+          "id": "S2",
+          "visual": "近景展示字幕文字",
+          "narration": "支持手动添加字幕",
+          "subtitle": "支持手动添加字幕",
+          "hold_seconds": 9,
+          "source_id": "P01",
+          "fact_id": "F01"
+        },
+        {
+          "id": "S3",
+          "visual": "展示带字幕的合成画面",
+          "narration": "支持手动添加字幕",
+          "subtitle": "支持手动添加字幕",
+          "hold_seconds": 9,
+          "source_id": "P01",
+          "fact_id": "F01"
+        }
+      ]
+    },
+    "draft_history": [
+      {
+        "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "支持手动添加字幕",
+              "subtitle": "支持手动添加字幕",
+              "hold_seconds": 8,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "支持手动添加字幕",
+              "subtitle": "支持手动添加字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S3",
+              "visual": "展示带字幕的合成画面",
+              "narration": "支持手动添加字幕",
+              "subtitle": "支持手动添加字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        },
+        "duration_check": {
+          "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+          "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+          "scene_timings": [
+            {
+              "scene_id": "S1",
+              "narration_seconds": 2,
+              "subtitle_seconds": 2,
+              "hold_seconds": 8,
+              "estimated_seconds": 8
+            },
+            {
+              "scene_id": "S2",
+              "narration_seconds": 2,
+              "subtitle_seconds": 2,
+              "hold_seconds": 9,
+              "estimated_seconds": 9
+            },
+            {
+              "scene_id": "S3",
+              "narration_seconds": 2,
+              "subtitle_seconds": 2,
+              "hold_seconds": 9,
+              "estimated_seconds": 9
+            }
+          ],
+          "transition_seconds": 2,
+          "estimated_total_seconds": 28,
+          "target_seconds": 30,
+          "over_by_seconds": 0,
+          "passed": true,
+          "brand_minimum_seconds": 9
+        },
+        "rule_check": {
+          "draft_id": "bc2975dbe70d84a9fd79422936345eff01d35277a2fab222a02a17bfa4be6f95",
+          "context_hash": "d93626df21c14af99f67da26b6abf4bb5c06c159f84406802f61946fba3d544c",
+          "passed": true,
+          "risks": [],
+          "source_citations": [
+            {
+              "scene_id": "S1",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            },
+            {
+              "scene_id": "S2",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            },
+            {
+              "scene_id": "S3",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-20",
+              "quote": "支持手动添加字幕",
+              "content_sha256": "0d9821eca27f2c25d7305ddfcd2ab2f41de4f05f48483f56a8e885bed2039a39"
+            }
+          ]
+        }
+      }
+    ],
+    "tool_errors": [],
+    "published": false
+  }
+}

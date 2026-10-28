@@ -1,0 +1,40 @@
+{
+  "request_id": "script-shorter-target",
+  "theme": "字幕功能介绍",
+  "audience": "短视频创作者",
+  "platform": "douyin",
+  "target_seconds": 15,
+  "style": "清晰简洁",
+  "initial_draft": {
+    "title": "字幕功能演示",
+    "scenes": [
+      {
+        "id": "S1",
+        "visual": "展示提供的字幕样例",
+        "narration": "支持字幕",
+        "subtitle": "支持字幕",
+        "hold_seconds": 12,
+        "source_id": "P01",
+        "fact_id": "F01"
+      },
+      {
+        "id": "S2",
+        "visual": "近景展示字幕文字",
+        "narration": "支持字幕",
+        "subtitle": "支持字幕",
+        "hold_seconds": 12,
+        "source_id": "P01",
+        "fact_id": "F01"
+      },
+      {
+        "id": "S3",
+        "visual": "回到字幕样例全景",
+        "narration": "支持字幕",
+        "subtitle": "支持字幕",
+        "hold_seconds": 12,
+        "source_id": "P01",
+        "fact_id": "F01"
+      }
+    ]
+  }
+}

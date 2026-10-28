@@ -1,0 +1,534 @@
+{
+  "case_id": "script-tool_failure",
+  "mode": "mock",
+  "model": "deterministic-mock-no-LLM",
+  "started_at": "2026-10-28T15:38:44.827030+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕功能介绍"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "字幕功能介绍",
+          "hits": [
+            {
+              "id": "P01",
+              "version_date": "2026-10-01",
+              "title": "Orion字幕功能素材（合成）",
+              "keywords": [
+                "字幕",
+                "subtitle",
+                "caption",
+                "P01"
+              ],
+              "facts": [
+                {
+                  "id": "F01",
+                  "text": "支持字幕"
+                }
+              ],
+              "asset_description": "合成字幕样例；不包含效果统计或自动识别能力说明。"
+            }
+          ],
+          "total_matches": 1
+        },
+        "error": null
+      },
+      "next_action": "estimate_duration",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "estimate_duration",
+      "arguments": {
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 8,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S3",
+              "visual": "展示带字幕的合成画面",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        }
+      },
+      "observation_summary": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TOOL_UNAVAILABLE",
+          "message": "Explicit injected failure",
+          "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba"
+        }
+      },
+      "next_action": "estimate_duration",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "estimate_duration",
+      "arguments": {
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 8,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S3",
+              "visual": "展示带字幕的合成画面",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        }
+      },
+      "observation_summary": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TOOL_UNAVAILABLE",
+          "message": "Explicit injected failure",
+          "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba"
+        }
+      },
+      "next_action": "finalize_script",
+      "decision_basis": ""
+    },
+    {
+      "step": 4,
+      "action": "finalize_script",
+      "arguments": {
+        "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba",
+        "mode": "stop",
+        "decision_basis": "Repeated tool failure; no false approval"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "script-tool_failure",
+          "status": "tool_failed",
+          "approved": false,
+          "script": null,
+          "estimated_total_seconds": null,
+          "target_seconds": 30,
+          "source_citations": [],
+          "risks": [
+            {
+              "rule_id": "TOOL_FAILURE",
+              "reason": "Required tool operation failed"
+            }
+          ],
+          "knowledge_gaps": [
+            "工具失败，尚不能确认时长或事实/品牌规则通过。"
+          ],
+          "duration_check": null,
+          "rule_check": null,
+          "last_draft": {
+            "title": "字幕功能演示",
+            "scenes": [
+              {
+                "id": "S1",
+                "visual": "展示提供的字幕样例",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 8,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S2",
+                "visual": "近景展示字幕文字",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S3",
+                "visual": "展示带字幕的合成画面",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01"
+              }
+            ]
+          },
+          "draft_history": [
+            {
+              "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba",
+              "draft": {
+                "title": "字幕功能演示",
+                "scenes": [
+                  {
+                    "id": "S1",
+                    "visual": "展示提供的字幕样例",
+                    "narration": "支持字幕",
+                    "subtitle": "支持字幕",
+                    "hold_seconds": 8,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  },
+                  {
+                    "id": "S2",
+                    "visual": "近景展示字幕文字",
+                    "narration": "支持字幕",
+                    "subtitle": "支持字幕",
+                    "hold_seconds": 9,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  },
+                  {
+                    "id": "S3",
+                    "visual": "展示带字幕的合成画面",
+                    "narration": "支持字幕",
+                    "subtitle": "支持字幕",
+                    "hold_seconds": 9,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  }
+                ]
+              },
+              "duration_check": null,
+              "rule_check": null
+            }
+          ],
+          "tool_errors": [
+            {
+              "tool": "estimate_duration",
+              "arguments": {
+                "draft": {
+                  "title": "字幕功能演示",
+                  "scenes": [
+                    {
+                      "id": "S1",
+                      "visual": "展示提供的字幕样例",
+                      "narration": "支持字幕",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 8,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    },
+                    {
+                      "id": "S2",
+                      "visual": "近景展示字幕文字",
+                      "narration": "支持字幕",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 9,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    },
+                    {
+                      "id": "S3",
+                      "visual": "展示带字幕的合成画面",
+                      "narration": "支持字幕",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 9,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    }
+                  ]
+                }
+              },
+              "observation": {
+                "ok": false,
+                "data": null,
+                "error": {
+                  "code": "TOOL_UNAVAILABLE",
+                  "message": "Explicit injected failure",
+                  "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba"
+                }
+              }
+            },
+            {
+              "tool": "estimate_duration",
+              "arguments": {
+                "draft": {
+                  "title": "字幕功能演示",
+                  "scenes": [
+                    {
+                      "id": "S1",
+                      "visual": "展示提供的字幕样例",
+                      "narration": "支持字幕",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 8,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    },
+                    {
+                      "id": "S2",
+                      "visual": "近景展示字幕文字",
+                      "narration": "支持字幕",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 9,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    },
+                    {
+                      "id": "S3",
+                      "visual": "展示带字幕的合成画面",
+                      "narration": "支持字幕",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 9,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    }
+                  ]
+                }
+              },
+              "observation": {
+                "ok": false,
+                "data": null,
+                "error": {
+                  "code": "TOOL_UNAVAILABLE",
+                  "message": "Explicit injected failure",
+                  "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba"
+                }
+              }
+            }
+          ],
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "Repeated tool failure; no false approval"
+    }
+  ],
+  "published": false,
+  "materials": "materials.json",
+  "final_status": "tool_failed",
+  "finished_at": "2026-10-28T15:38:44.848305+00:00",
+  "result": {
+    "request_id": "script-tool_failure",
+    "status": "tool_failed",
+    "approved": false,
+    "script": null,
+    "estimated_total_seconds": null,
+    "target_seconds": 30,
+    "source_citations": [],
+    "risks": [
+      {
+        "rule_id": "TOOL_FAILURE",
+        "reason": "Required tool operation failed"
+      }
+    ],
+    "knowledge_gaps": [
+      "工具失败，尚不能确认时长或事实/品牌规则通过。"
+    ],
+    "duration_check": null,
+    "rule_check": null,
+    "last_draft": {
+      "title": "字幕功能演示",
+      "scenes": [
+        {
+          "id": "S1",
+          "visual": "展示提供的字幕样例",
+          "narration": "支持字幕",
+          "subtitle": "支持字幕",
+          "hold_seconds": 8,
+          "source_id": "P01",
+          "fact_id": "F01"
+        },
+        {
+          "id": "S2",
+          "visual": "近景展示字幕文字",
+          "narration": "支持字幕",
+          "subtitle": "支持字幕",
+          "hold_seconds": 9,
+          "source_id": "P01",
+          "fact_id": "F01"
+        },
+        {
+          "id": "S3",
+          "visual": "展示带字幕的合成画面",
+          "narration": "支持字幕",
+          "subtitle": "支持字幕",
+          "hold_seconds": 9,
+          "source_id": "P01",
+          "fact_id": "F01"
+        }
+      ]
+    },
+    "draft_history": [
+      {
+        "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba",
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 8,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S3",
+              "visual": "展示带字幕的合成画面",
+              "narration": "支持字幕",
+              "subtitle": "支持字幕",
+              "hold_seconds": 9,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        },
+        "duration_check": null,
+        "rule_check": null
+      }
+    ],
+    "tool_errors": [
+      {
+        "tool": "estimate_duration",
+        "arguments": {
+          "draft": {
+            "title": "字幕功能演示",
+            "scenes": [
+              {
+                "id": "S1",
+                "visual": "展示提供的字幕样例",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 8,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S2",
+                "visual": "近景展示字幕文字",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S3",
+                "visual": "展示带字幕的合成画面",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01"
+              }
+            ]
+          }
+        },
+        "observation": {
+          "ok": false,
+          "data": null,
+          "error": {
+            "code": "TOOL_UNAVAILABLE",
+            "message": "Explicit injected failure",
+            "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba"
+          }
+        }
+      },
+      {
+        "tool": "estimate_duration",
+        "arguments": {
+          "draft": {
+            "title": "字幕功能演示",
+            "scenes": [
+              {
+                "id": "S1",
+                "visual": "展示提供的字幕样例",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 8,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S2",
+                "visual": "近景展示字幕文字",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S3",
+                "visual": "展示带字幕的合成画面",
+                "narration": "支持字幕",
+                "subtitle": "支持字幕",
+                "hold_seconds": 9,
+                "source_id": "P01",
+                "fact_id": "F01"
+              }
+            ]
+          }
+        },
+        "observation": {
+          "ok": false,
+          "data": null,
+          "error": {
+            "code": "TOOL_UNAVAILABLE",
+            "message": "Explicit injected failure",
+            "draft_id": "b0fffb65840e6c95ed8dd7ca73765a8d787b67875273d8b4e75be522461942ba"
+          }
+        }
+      }
+    ],
+    "published": false
+  }
+}

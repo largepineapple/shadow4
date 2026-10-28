@@ -1,0 +1,19 @@
+{
+  "request_id": "script-empty_results",
+  "status": "needs_materials",
+  "approved": false,
+  "script": null,
+  "estimated_total_seconds": null,
+  "target_seconds": 30,
+  "source_citations": [],
+  "risks": [],
+  "knowledge_gaps": [
+    "当前检索未获得支持该主题的素材，请补充素材或调整主题。"
+  ],
+  "duration_check": null,
+  "rule_check": null,
+  "last_draft": null,
+  "draft_history": [],
+  "tool_errors": [],
+  "published": false
+}

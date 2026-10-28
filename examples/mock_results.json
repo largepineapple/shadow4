@@ -1,0 +1,308 @@
+{
+  "mode": "mock",
+  "cases": [
+    {
+      "name": "normal",
+      "input": "examples/inputs/normal.json",
+      "materials": "data/materials.json",
+      "status": "completed",
+      "estimated_total_seconds": 28,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "check_rules",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "both_checks_passed": true,
+        "within_target": true,
+        "same_draft_id": true,
+        "scene_total": true,
+        "sources_match": true,
+        "scene_source_alignment": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.161
+    },
+    {
+      "name": "missing",
+      "input": "examples/inputs/missing.json",
+      "materials": "data/materials.json",
+      "status": "needs_information",
+      "estimated_total_seconds": null,
+      "model": "not_called",
+      "actions": [],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "no_false_approval": true,
+        "no_model": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.165
+    },
+    {
+      "name": "no_materials",
+      "input": "examples/inputs/no_materials.json",
+      "materials": "data/materials.json",
+      "status": "needs_materials",
+      "estimated_total_seconds": null,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "search_materials",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "no_false_approval": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.308
+    },
+    {
+      "name": "tool_failure",
+      "input": "examples/inputs/tool_failure.json",
+      "materials": "data/materials.json",
+      "status": "tool_failed",
+      "estimated_total_seconds": null,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "estimate_duration",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "no_false_approval": true,
+        "actual_error": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.279
+    },
+    {
+      "name": "overlong",
+      "input": "examples/inputs/overlong.json",
+      "materials": "data/materials.json",
+      "status": "completed",
+      "estimated_total_seconds": 28,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "check_rules",
+        "estimate_duration",
+        "check_rules",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "both_checks_passed": true,
+        "within_target": true,
+        "same_draft_id": true,
+        "scene_total": true,
+        "sources_match": true,
+        "scene_source_alignment": true,
+        "actual_38s_initial": true,
+        "revised_and_rechecked": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.152
+    },
+    {
+      "name": "too_short",
+      "input": "examples/inputs/too_short.json",
+      "materials": "data/materials.json",
+      "status": "cannot_satisfy",
+      "estimated_total_seconds": 9,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "check_rules",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "no_false_approval": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.165
+    },
+    {
+      "name": "changed_source",
+      "input": "examples/inputs/changed_source.json",
+      "materials": "examples/fixtures/changed.json",
+      "status": "completed",
+      "estimated_total_seconds": 28,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "check_rules",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "both_checks_passed": true,
+        "within_target": true,
+        "same_draft_id": true,
+        "scene_total": true,
+        "sources_match": true,
+        "scene_source_alignment": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.225
+    },
+    {
+      "name": "empty_results",
+      "input": "examples/inputs/empty_results.json",
+      "materials": "examples/fixtures/empty.json",
+      "status": "needs_materials",
+      "estimated_total_seconds": null,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "search_materials",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "no_false_approval": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.156
+    },
+    {
+      "name": "rule_repair",
+      "input": "examples/inputs/rule_repair.json",
+      "materials": "data/materials.json",
+      "status": "completed",
+      "estimated_total_seconds": 28,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "check_rules",
+        "estimate_duration",
+        "check_rules",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "both_checks_passed": true,
+        "within_target": true,
+        "same_draft_id": true,
+        "scene_total": true,
+        "sources_match": true,
+        "scene_source_alignment": true,
+        "rejected_unsupported_claim": true,
+        "no_80_percent_claim": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.234
+    },
+    {
+      "name": "shorter_target",
+      "input": "examples/inputs/shorter_target.json",
+      "materials": "data/materials.json",
+      "status": "completed",
+      "estimated_total_seconds": 14,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "check_rules",
+        "estimate_duration",
+        "check_rules",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "both_checks_passed": true,
+        "within_target": true,
+        "same_draft_id": true,
+        "scene_total": true,
+        "sources_match": true,
+        "scene_source_alignment": true,
+        "actual_38s_initial": true,
+        "revised_and_rechecked": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.166
+    },
+    {
+      "name": "transient_failure",
+      "input": "examples/inputs/normal.json",
+      "materials": "data/materials.json",
+      "status": "completed",
+      "estimated_total_seconds": 28,
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_materials",
+        "estimate_duration",
+        "estimate_duration",
+        "check_rules",
+        "finalize_script"
+      ],
+      "checks": {
+        "status": true,
+        "result_matches_trace": true,
+        "not_published": true,
+        "exit_code": true,
+        "both_checks_passed": true,
+        "within_target": true,
+        "same_draft_id": true,
+        "scene_total": true,
+        "sources_match": true,
+        "scene_source_alignment": true,
+        "actual_error": true,
+        "actual_loop": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.165
+    }
+  ],
+  "elapsed_seconds": 2.184
+}

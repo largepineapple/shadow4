@@ -1,0 +1,101 @@
+{
+  "case_id": "script-empty_results",
+  "mode": "mock",
+  "model": "deterministic-mock-no-LLM",
+  "started_at": "2026-10-28T15:38:45.551903+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕功能介绍"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "字幕功能介绍",
+          "hits": [],
+          "total_matches": 0
+        },
+        "error": null
+      },
+      "next_action": "search_materials",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕功能介绍"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "字幕功能介绍",
+          "hits": [],
+          "total_matches": 0
+        },
+        "error": null
+      },
+      "next_action": "finalize_script",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "finalize_script",
+      "arguments": {
+        "draft_id": "",
+        "mode": "stop",
+        "decision_basis": "No relevant retrieved material; request supporting facts"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "script-empty_results",
+          "status": "needs_materials",
+          "approved": false,
+          "script": null,
+          "estimated_total_seconds": null,
+          "target_seconds": 30,
+          "source_citations": [],
+          "risks": [],
+          "knowledge_gaps": [
+            "当前检索未获得支持该主题的素材，请补充素材或调整主题。"
+          ],
+          "duration_check": null,
+          "rule_check": null,
+          "last_draft": null,
+          "draft_history": [],
+          "tool_errors": [],
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "No relevant retrieved material; request supporting facts"
+    }
+  ],
+  "published": false,
+  "materials": "empty.json",
+  "final_status": "needs_materials",
+  "finished_at": "2026-10-28T15:38:45.553901+00:00",
+  "result": {
+    "request_id": "script-empty_results",
+    "status": "needs_materials",
+    "approved": false,
+    "script": null,
+    "estimated_total_seconds": null,
+    "target_seconds": 30,
+    "source_citations": [],
+    "risks": [],
+    "knowledge_gaps": [
+      "当前检索未获得支持该主题的素材，请补充素材或调整主题。"
+    ],
+    "duration_check": null,
+    "rule_check": null,
+    "last_draft": null,
+    "draft_history": [],
+    "tool_errors": [],
+    "published": false
+  }
+}

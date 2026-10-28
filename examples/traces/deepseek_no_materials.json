@@ -1,0 +1,101 @@
+{
+  "case_id": "script-no_materials",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T15:43:37.377756+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "量子芯片性能测评"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "量子芯片性能测评",
+          "hits": [],
+          "total_matches": 0
+        },
+        "error": null
+      },
+      "next_action": "search_materials",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "search_materials",
+      "arguments": {
+        "query": "量子芯片 测评 材料"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "量子芯片 测评 材料",
+          "hits": [],
+          "total_matches": 0
+        },
+        "error": null
+      },
+      "next_action": "finalize_script",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "finalize_script",
+      "arguments": {
+        "draft_id": "none",
+        "mode": "stop",
+        "decision_basis": "检索主题\"量子芯片性能测评\"两次均无素材返回，无法获得可引用的 source_id/fact_id，因此未生成脚本草稿。"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "script-no_materials",
+          "status": "needs_materials",
+          "approved": false,
+          "script": null,
+          "estimated_total_seconds": null,
+          "target_seconds": 30,
+          "source_citations": [],
+          "risks": [],
+          "knowledge_gaps": [
+            "当前检索未获得支持该主题的素材，请补充素材或调整主题。"
+          ],
+          "duration_check": null,
+          "rule_check": null,
+          "last_draft": null,
+          "draft_history": [],
+          "tool_errors": [],
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "检索主题\"量子芯片性能测评\"两次均无素材返回，无法获得可引用的 source_id/fact_id，因此未生成脚本草稿。"
+    }
+  ],
+  "published": false,
+  "materials": "materials.json",
+  "final_status": "needs_materials",
+  "finished_at": "2026-10-28T15:43:54.028283+00:00",
+  "result": {
+    "request_id": "script-no_materials",
+    "status": "needs_materials",
+    "approved": false,
+    "script": null,
+    "estimated_total_seconds": null,
+    "target_seconds": 30,
+    "source_citations": [],
+    "risks": [],
+    "knowledge_gaps": [
+      "当前检索未获得支持该主题的素材，请补充素材或调整主题。"
+    ],
+    "duration_check": null,
+    "rule_check": null,
+    "last_draft": null,
+    "draft_history": [],
+    "tool_errors": [],
+    "published": false
+  }
+}

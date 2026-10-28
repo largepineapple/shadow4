@@ -1,0 +1,540 @@
+{
+  "case_id": "script-too_short",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T15:44:54.490692+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕功能"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "字幕功能",
+          "hits": [
+            {
+              "id": "P01",
+              "version_date": "2026-10-01",
+              "title": "Orion字幕功能素材（合成）",
+              "keywords": [
+                "字幕",
+                "subtitle",
+                "caption",
+                "P01"
+              ],
+              "facts": [
+                {
+                  "id": "F01",
+                  "text": "支持字幕"
+                }
+              ],
+              "asset_description": "合成字幕样例；不包含效果统计或自动识别能力说明。"
+            }
+          ],
+          "total_matches": 1
+        },
+        "error": null
+      },
+      "next_action": "estimate_duration",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "estimate_duration",
+      "arguments": {
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "先看画面，再看文字。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "这就是本次的字幕展示。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        }
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+          "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+          "scene_timings": [
+            {
+              "scene_id": "S1",
+              "narration_seconds": 2,
+              "subtitle_seconds": 1,
+              "hold_seconds": 4,
+              "estimated_seconds": 4
+            },
+            {
+              "scene_id": "S2",
+              "narration_seconds": 3,
+              "subtitle_seconds": 1,
+              "hold_seconds": 4,
+              "estimated_seconds": 4
+            }
+          ],
+          "transition_seconds": 1,
+          "estimated_total_seconds": 9,
+          "target_seconds": 3,
+          "over_by_seconds": 6,
+          "passed": false,
+          "brand_minimum_seconds": 9
+        },
+        "error": null
+      },
+      "next_action": "check_rules",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "check_rules",
+      "arguments": {
+        "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+          "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+          "passed": true,
+          "risks": [],
+          "source_citations": [
+            {
+              "scene_id": "S1",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-01",
+              "quote": "支持字幕",
+              "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+            },
+            {
+              "scene_id": "S2",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-01",
+              "quote": "支持字幕",
+              "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "finalize_script",
+      "decision_basis": ""
+    },
+    {
+      "step": 4,
+      "action": "finalize_script",
+      "arguments": {
+        "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+        "mode": "stop",
+        "decision_basis": "主题\"字幕功能介绍\"仅检索到一条事实（P01/F01：支持字幕）；品牌最低时长要求2个场景×4秒+1秒转场=9秒，已超过3秒目标，无法在目标内合规，故以已通过规则检查的最小可行稿停止。"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "script-too_short",
+          "status": "cannot_satisfy",
+          "approved": false,
+          "script": null,
+          "estimated_total_seconds": 9,
+          "target_seconds": 3,
+          "source_citations": [
+            {
+              "scene_id": "S1",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-01",
+              "quote": "支持字幕",
+              "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+            },
+            {
+              "scene_id": "S2",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-01",
+              "quote": "支持字幕",
+              "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+            }
+          ],
+          "risks": [
+            {
+              "rule_id": "TIME_LIMIT",
+              "reason": "Estimated duration exceeds target",
+              "over_by_seconds": 6
+            }
+          ],
+          "knowledge_gaps": [
+            "当前草稿仍有未满足的时长或规则约束，不能标记为完成。"
+          ],
+          "duration_check": {
+            "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+            "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+            "scene_timings": [
+              {
+                "scene_id": "S1",
+                "narration_seconds": 2,
+                "subtitle_seconds": 1,
+                "hold_seconds": 4,
+                "estimated_seconds": 4
+              },
+              {
+                "scene_id": "S2",
+                "narration_seconds": 3,
+                "subtitle_seconds": 1,
+                "hold_seconds": 4,
+                "estimated_seconds": 4
+              }
+            ],
+            "transition_seconds": 1,
+            "estimated_total_seconds": 9,
+            "target_seconds": 3,
+            "over_by_seconds": 6,
+            "passed": false,
+            "brand_minimum_seconds": 9
+          },
+          "rule_check": {
+            "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+            "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+            "passed": true,
+            "risks": [],
+            "source_citations": [
+              {
+                "scene_id": "S1",
+                "source_id": "P01",
+                "fact_id": "F01",
+                "version_date": "2026-10-01",
+                "quote": "支持字幕",
+                "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+              },
+              {
+                "scene_id": "S2",
+                "source_id": "P01",
+                "fact_id": "F01",
+                "version_date": "2026-10-01",
+                "quote": "支持字幕",
+                "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+              }
+            ]
+          },
+          "last_draft": {
+            "title": "字幕功能演示",
+            "scenes": [
+              {
+                "id": "S1",
+                "visual": "展示提供的字幕样例",
+                "narration": "先看画面，再看文字。",
+                "subtitle": "支持字幕",
+                "hold_seconds": 4,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S2",
+                "visual": "近景展示字幕文字",
+                "narration": "这就是本次的字幕展示。",
+                "subtitle": "支持字幕",
+                "hold_seconds": 4,
+                "source_id": "P01",
+                "fact_id": "F01"
+              }
+            ]
+          },
+          "draft_history": [
+            {
+              "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+              "draft": {
+                "title": "字幕功能演示",
+                "scenes": [
+                  {
+                    "id": "S1",
+                    "visual": "展示提供的字幕样例",
+                    "narration": "先看画面，再看文字。",
+                    "subtitle": "支持字幕",
+                    "hold_seconds": 4,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  },
+                  {
+                    "id": "S2",
+                    "visual": "近景展示字幕文字",
+                    "narration": "这就是本次的字幕展示。",
+                    "subtitle": "支持字幕",
+                    "hold_seconds": 4,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  }
+                ]
+              },
+              "duration_check": {
+                "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+                "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+                "scene_timings": [
+                  {
+                    "scene_id": "S1",
+                    "narration_seconds": 2,
+                    "subtitle_seconds": 1,
+                    "hold_seconds": 4,
+                    "estimated_seconds": 4
+                  },
+                  {
+                    "scene_id": "S2",
+                    "narration_seconds": 3,
+                    "subtitle_seconds": 1,
+                    "hold_seconds": 4,
+                    "estimated_seconds": 4
+                  }
+                ],
+                "transition_seconds": 1,
+                "estimated_total_seconds": 9,
+                "target_seconds": 3,
+                "over_by_seconds": 6,
+                "passed": false,
+                "brand_minimum_seconds": 9
+              },
+              "rule_check": {
+                "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+                "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+                "passed": true,
+                "risks": [],
+                "source_citations": [
+                  {
+                    "scene_id": "S1",
+                    "source_id": "P01",
+                    "fact_id": "F01",
+                    "version_date": "2026-10-01",
+                    "quote": "支持字幕",
+                    "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+                  },
+                  {
+                    "scene_id": "S2",
+                    "source_id": "P01",
+                    "fact_id": "F01",
+                    "version_date": "2026-10-01",
+                    "quote": "支持字幕",
+                    "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+                  }
+                ]
+              }
+            }
+          ],
+          "tool_errors": [],
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "主题\"字幕功能介绍\"仅检索到一条事实（P01/F01：支持字幕）；品牌最低时长要求2个场景×4秒+1秒转场=9秒，已超过3秒目标，无法在目标内合规，故以已通过规则检查的最小可行稿停止。"
+    }
+  ],
+  "published": false,
+  "materials": "materials.json",
+  "final_status": "cannot_satisfy",
+  "finished_at": "2026-10-28T15:45:19.347944+00:00",
+  "result": {
+    "request_id": "script-too_short",
+    "status": "cannot_satisfy",
+    "approved": false,
+    "script": null,
+    "estimated_total_seconds": 9,
+    "target_seconds": 3,
+    "source_citations": [
+      {
+        "scene_id": "S1",
+        "source_id": "P01",
+        "fact_id": "F01",
+        "version_date": "2026-10-01",
+        "quote": "支持字幕",
+        "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+      },
+      {
+        "scene_id": "S2",
+        "source_id": "P01",
+        "fact_id": "F01",
+        "version_date": "2026-10-01",
+        "quote": "支持字幕",
+        "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+      }
+    ],
+    "risks": [
+      {
+        "rule_id": "TIME_LIMIT",
+        "reason": "Estimated duration exceeds target",
+        "over_by_seconds": 6
+      }
+    ],
+    "knowledge_gaps": [
+      "当前草稿仍有未满足的时长或规则约束，不能标记为完成。"
+    ],
+    "duration_check": {
+      "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+      "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+      "scene_timings": [
+        {
+          "scene_id": "S1",
+          "narration_seconds": 2,
+          "subtitle_seconds": 1,
+          "hold_seconds": 4,
+          "estimated_seconds": 4
+        },
+        {
+          "scene_id": "S2",
+          "narration_seconds": 3,
+          "subtitle_seconds": 1,
+          "hold_seconds": 4,
+          "estimated_seconds": 4
+        }
+      ],
+      "transition_seconds": 1,
+      "estimated_total_seconds": 9,
+      "target_seconds": 3,
+      "over_by_seconds": 6,
+      "passed": false,
+      "brand_minimum_seconds": 9
+    },
+    "rule_check": {
+      "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+      "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+      "passed": true,
+      "risks": [],
+      "source_citations": [
+        {
+          "scene_id": "S1",
+          "source_id": "P01",
+          "fact_id": "F01",
+          "version_date": "2026-10-01",
+          "quote": "支持字幕",
+          "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+        },
+        {
+          "scene_id": "S2",
+          "source_id": "P01",
+          "fact_id": "F01",
+          "version_date": "2026-10-01",
+          "quote": "支持字幕",
+          "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+        }
+      ]
+    },
+    "last_draft": {
+      "title": "字幕功能演示",
+      "scenes": [
+        {
+          "id": "S1",
+          "visual": "展示提供的字幕样例",
+          "narration": "先看画面，再看文字。",
+          "subtitle": "支持字幕",
+          "hold_seconds": 4,
+          "source_id": "P01",
+          "fact_id": "F01"
+        },
+        {
+          "id": "S2",
+          "visual": "近景展示字幕文字",
+          "narration": "这就是本次的字幕展示。",
+          "subtitle": "支持字幕",
+          "hold_seconds": 4,
+          "source_id": "P01",
+          "fact_id": "F01"
+        }
+      ]
+    },
+    "draft_history": [
+      {
+        "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "先看画面，再看文字。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "这就是本次的字幕展示。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        },
+        "duration_check": {
+          "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+          "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+          "scene_timings": [
+            {
+              "scene_id": "S1",
+              "narration_seconds": 2,
+              "subtitle_seconds": 1,
+              "hold_seconds": 4,
+              "estimated_seconds": 4
+            },
+            {
+              "scene_id": "S2",
+              "narration_seconds": 3,
+              "subtitle_seconds": 1,
+              "hold_seconds": 4,
+              "estimated_seconds": 4
+            }
+          ],
+          "transition_seconds": 1,
+          "estimated_total_seconds": 9,
+          "target_seconds": 3,
+          "over_by_seconds": 6,
+          "passed": false,
+          "brand_minimum_seconds": 9
+        },
+        "rule_check": {
+          "draft_id": "c19fb2fd57eb9db6e78a61617efff111cae50b4040deff7797a9d518873b8c32",
+          "context_hash": "873cf95b2cf942d920920d091a766e4d4da5697b8cdb6364e5e8bc590a15f65c",
+          "passed": true,
+          "risks": [],
+          "source_citations": [
+            {
+              "scene_id": "S1",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-01",
+              "quote": "支持字幕",
+              "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+            },
+            {
+              "scene_id": "S2",
+              "source_id": "P01",
+              "fact_id": "F01",
+              "version_date": "2026-10-01",
+              "quote": "支持字幕",
+              "content_sha256": "ef2f551f611677e0fdeb5b0788cfd275005ab529d21082aaba6e02565ae74aef"
+            }
+          ]
+        }
+      }
+    ],
+    "tool_errors": [],
+    "published": false
+  }
+}

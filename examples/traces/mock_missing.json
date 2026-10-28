@@ -1,0 +1,26 @@
+{
+  "case_id": "script-missing",
+  "mode": "mock",
+  "model": "not_called",
+  "started_at": "2026-10-28T15:38:44.242844+00:00",
+  "steps": [],
+  "published": false,
+  "final_status": "needs_information",
+  "finished_at": "2026-10-28T15:38:44.257838+00:00",
+  "result": {
+    "request_id": "script-missing",
+    "status": "needs_information",
+    "approved": false,
+    "missing_fields": [
+      "audience"
+    ],
+    "script": null,
+    "knowledge_gaps": [
+      "请补充主题、受众、平台、目标时长和风格。"
+    ],
+    "risks": [],
+    "draft_history": [],
+    "tool_errors": [],
+    "published": false
+  }
+}

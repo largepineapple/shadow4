@@ -1,0 +1,5 @@
+Command: python -m pytest -q
+Mode: offline/mock and client contract tests
+Local dependency path: ../.deps (normal installation uses requirements.txt)
+.....................................                                    [100%]
+37 passed in 0.15s

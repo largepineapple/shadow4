@@ -1,0 +1,29 @@
+{
+  "allowed_titles": [
+    "字幕功能演示",
+    "看看字幕呈现",
+    "字幕样例短片"
+  ],
+  "allowed_visuals": [
+    "展示提供的字幕样例",
+    "近景展示字幕文字",
+    "展示带字幕的合成画面",
+    "回到字幕样例全景"
+  ],
+  "neutral_narrations": [
+    "先看画面，再看文字。",
+    "看看这个字幕样例。",
+    "这就是本次的字幕展示。"
+  ],
+  "banned_terms": [
+    "保证翻倍",
+    "绝对领先",
+    "永久免费"
+  ],
+  "min_scenes": 2,
+  "max_scenes": 6,
+  "min_scene_seconds": 4,
+  "transition_seconds": 1,
+  "narration_chars_per_second": 4,
+  "subtitle_chars_per_second": 5
+}

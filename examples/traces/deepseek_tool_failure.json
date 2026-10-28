@@ -1,0 +1,534 @@
+{
+  "case_id": "script-tool_failure",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T15:43:54.315146+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_materials",
+      "arguments": {
+        "query": "字幕功能介绍 字幕样例"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "字幕功能介绍 字幕样例",
+          "hits": [
+            {
+              "id": "P01",
+              "version_date": "2026-10-01",
+              "title": "Orion字幕功能素材（合成）",
+              "keywords": [
+                "字幕",
+                "subtitle",
+                "caption",
+                "P01"
+              ],
+              "facts": [
+                {
+                  "id": "F01",
+                  "text": "支持字幕"
+                }
+              ],
+              "asset_description": "合成字幕样例；不包含效果统计或自动识别能力说明。"
+            }
+          ],
+          "total_matches": 1
+        },
+        "error": null
+      },
+      "next_action": "estimate_duration",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "estimate_duration",
+      "arguments": {
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "先看画面，再看文字。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "看看这个字幕样例。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S3",
+              "visual": "回到字幕样例全景",
+              "narration": "这就是本次的字幕展示。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        }
+      },
+      "observation_summary": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TOOL_UNAVAILABLE",
+          "message": "Explicit injected failure",
+          "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf"
+        }
+      },
+      "next_action": "estimate_duration",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "estimate_duration",
+      "arguments": {
+        "draft": {
+          "scenes": [
+            {
+              "fact_id": "F01",
+              "hold_seconds": 4,
+              "id": "S1",
+              "narration": "先看画面，再看文字。",
+              "source_id": "P01",
+              "subtitle": "支持字幕",
+              "visual": "展示提供的字幕样例"
+            },
+            {
+              "fact_id": "F01",
+              "hold_seconds": 4,
+              "id": "S2",
+              "narration": "看看这个字幕样例。",
+              "source_id": "P01",
+              "subtitle": "支持字幕",
+              "visual": "近景展示字幕文字"
+            },
+            {
+              "fact_id": "F01",
+              "hold_seconds": 4,
+              "id": "S3",
+              "narration": "这就是本次的字幕展示。",
+              "source_id": "P01",
+              "subtitle": "支持字幕",
+              "visual": "回到字幕样例全景"
+            }
+          ],
+          "title": "字幕功能演示"
+        }
+      },
+      "observation_summary": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TOOL_UNAVAILABLE",
+          "message": "Explicit injected failure",
+          "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf"
+        }
+      },
+      "next_action": "finalize_script",
+      "decision_basis": ""
+    },
+    {
+      "step": 4,
+      "action": "finalize_script",
+      "arguments": {
+        "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf",
+        "mode": "stop",
+        "decision_basis": "estimate_duration 连续两次返回 TOOL_UNAVAILABLE（\"Explicit injected failure\"），时长与规则检查均未通过，无法进入 ready。素材检索仅得到 P01/F01「支持字幕」，已按品牌允许标题、允许画面与 neutral_narrations 生成 3 场草稿（标题「字幕功能演示」，S1 展示提供的字幕样例／S2 近景展示字幕文字／S3 回到字幕样例全景，各 4 秒，字幕为「支持字幕」），未使用禁用词；工具故障如实停止。"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "script-tool_failure",
+          "status": "tool_failed",
+          "approved": false,
+          "script": null,
+          "estimated_total_seconds": null,
+          "target_seconds": 30,
+          "source_citations": [],
+          "risks": [
+            {
+              "rule_id": "TOOL_FAILURE",
+              "reason": "Required tool operation failed"
+            }
+          ],
+          "knowledge_gaps": [
+            "工具失败，尚不能确认时长或事实/品牌规则通过。"
+          ],
+          "duration_check": null,
+          "rule_check": null,
+          "last_draft": {
+            "title": "字幕功能演示",
+            "scenes": [
+              {
+                "id": "S1",
+                "visual": "展示提供的字幕样例",
+                "narration": "先看画面，再看文字。",
+                "subtitle": "支持字幕",
+                "hold_seconds": 4,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S2",
+                "visual": "近景展示字幕文字",
+                "narration": "看看这个字幕样例。",
+                "subtitle": "支持字幕",
+                "hold_seconds": 4,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S3",
+                "visual": "回到字幕样例全景",
+                "narration": "这就是本次的字幕展示。",
+                "subtitle": "支持字幕",
+                "hold_seconds": 4,
+                "source_id": "P01",
+                "fact_id": "F01"
+              }
+            ]
+          },
+          "draft_history": [
+            {
+              "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf",
+              "draft": {
+                "title": "字幕功能演示",
+                "scenes": [
+                  {
+                    "id": "S1",
+                    "visual": "展示提供的字幕样例",
+                    "narration": "先看画面，再看文字。",
+                    "subtitle": "支持字幕",
+                    "hold_seconds": 4,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  },
+                  {
+                    "id": "S2",
+                    "visual": "近景展示字幕文字",
+                    "narration": "看看这个字幕样例。",
+                    "subtitle": "支持字幕",
+                    "hold_seconds": 4,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  },
+                  {
+                    "id": "S3",
+                    "visual": "回到字幕样例全景",
+                    "narration": "这就是本次的字幕展示。",
+                    "subtitle": "支持字幕",
+                    "hold_seconds": 4,
+                    "source_id": "P01",
+                    "fact_id": "F01"
+                  }
+                ]
+              },
+              "duration_check": null,
+              "rule_check": null
+            }
+          ],
+          "tool_errors": [
+            {
+              "tool": "estimate_duration",
+              "arguments": {
+                "draft": {
+                  "title": "字幕功能演示",
+                  "scenes": [
+                    {
+                      "id": "S1",
+                      "visual": "展示提供的字幕样例",
+                      "narration": "先看画面，再看文字。",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 4,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    },
+                    {
+                      "id": "S2",
+                      "visual": "近景展示字幕文字",
+                      "narration": "看看这个字幕样例。",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 4,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    },
+                    {
+                      "id": "S3",
+                      "visual": "回到字幕样例全景",
+                      "narration": "这就是本次的字幕展示。",
+                      "subtitle": "支持字幕",
+                      "hold_seconds": 4,
+                      "source_id": "P01",
+                      "fact_id": "F01"
+                    }
+                  ]
+                }
+              },
+              "observation": {
+                "ok": false,
+                "data": null,
+                "error": {
+                  "code": "TOOL_UNAVAILABLE",
+                  "message": "Explicit injected failure",
+                  "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf"
+                }
+              }
+            },
+            {
+              "tool": "estimate_duration",
+              "arguments": {
+                "draft": {
+                  "scenes": [
+                    {
+                      "fact_id": "F01",
+                      "hold_seconds": 4,
+                      "id": "S1",
+                      "narration": "先看画面，再看文字。",
+                      "source_id": "P01",
+                      "subtitle": "支持字幕",
+                      "visual": "展示提供的字幕样例"
+                    },
+                    {
+                      "fact_id": "F01",
+                      "hold_seconds": 4,
+                      "id": "S2",
+                      "narration": "看看这个字幕样例。",
+                      "source_id": "P01",
+                      "subtitle": "支持字幕",
+                      "visual": "近景展示字幕文字"
+                    },
+                    {
+                      "fact_id": "F01",
+                      "hold_seconds": 4,
+                      "id": "S3",
+                      "narration": "这就是本次的字幕展示。",
+                      "source_id": "P01",
+                      "subtitle": "支持字幕",
+                      "visual": "回到字幕样例全景"
+                    }
+                  ],
+                  "title": "字幕功能演示"
+                }
+              },
+              "observation": {
+                "ok": false,
+                "data": null,
+                "error": {
+                  "code": "TOOL_UNAVAILABLE",
+                  "message": "Explicit injected failure",
+                  "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf"
+                }
+              }
+            }
+          ],
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "estimate_duration 连续两次返回 TOOL_UNAVAILABLE（\"Explicit injected failure\"），时长与规则检查均未通过，无法进入 ready。素材检索仅得到 P01/F01「支持字幕」，已按品牌允许标题、允许画面与 neutral_narrations 生成 3 场草稿（标题「字幕功能演示」，S1 展示提供的字幕样例／S2 近景展示字幕文字／S3 回到字幕样例全景，各 4 秒，字幕为「支持字幕」），未使用禁用词；工具故障如实停止。"
+    }
+  ],
+  "published": false,
+  "materials": "materials.json",
+  "final_status": "tool_failed",
+  "finished_at": "2026-10-28T15:44:18.442593+00:00",
+  "result": {
+    "request_id": "script-tool_failure",
+    "status": "tool_failed",
+    "approved": false,
+    "script": null,
+    "estimated_total_seconds": null,
+    "target_seconds": 30,
+    "source_citations": [],
+    "risks": [
+      {
+        "rule_id": "TOOL_FAILURE",
+        "reason": "Required tool operation failed"
+      }
+    ],
+    "knowledge_gaps": [
+      "工具失败，尚不能确认时长或事实/品牌规则通过。"
+    ],
+    "duration_check": null,
+    "rule_check": null,
+    "last_draft": {
+      "title": "字幕功能演示",
+      "scenes": [
+        {
+          "id": "S1",
+          "visual": "展示提供的字幕样例",
+          "narration": "先看画面，再看文字。",
+          "subtitle": "支持字幕",
+          "hold_seconds": 4,
+          "source_id": "P01",
+          "fact_id": "F01"
+        },
+        {
+          "id": "S2",
+          "visual": "近景展示字幕文字",
+          "narration": "看看这个字幕样例。",
+          "subtitle": "支持字幕",
+          "hold_seconds": 4,
+          "source_id": "P01",
+          "fact_id": "F01"
+        },
+        {
+          "id": "S3",
+          "visual": "回到字幕样例全景",
+          "narration": "这就是本次的字幕展示。",
+          "subtitle": "支持字幕",
+          "hold_seconds": 4,
+          "source_id": "P01",
+          "fact_id": "F01"
+        }
+      ]
+    },
+    "draft_history": [
+      {
+        "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf",
+        "draft": {
+          "title": "字幕功能演示",
+          "scenes": [
+            {
+              "id": "S1",
+              "visual": "展示提供的字幕样例",
+              "narration": "先看画面，再看文字。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S2",
+              "visual": "近景展示字幕文字",
+              "narration": "看看这个字幕样例。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            },
+            {
+              "id": "S3",
+              "visual": "回到字幕样例全景",
+              "narration": "这就是本次的字幕展示。",
+              "subtitle": "支持字幕",
+              "hold_seconds": 4,
+              "source_id": "P01",
+              "fact_id": "F01"
+            }
+          ]
+        },
+        "duration_check": null,
+        "rule_check": null
+      }
+    ],
+    "tool_errors": [
+      {
+        "tool": "estimate_duration",
+        "arguments": {
+          "draft": {
+            "title": "字幕功能演示",
+            "scenes": [
+              {
+                "id": "S1",
+                "visual": "展示提供的字幕样例",
+                "narration": "先看画面，再看文字。",
+                "subtitle": "支持字幕",
+                "hold_seconds": 4,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S2",
+                "visual": "近景展示字幕文字",
+                "narration": "看看这个字幕样例。",
+                "subtitle": "支持字幕",
+                "hold_seconds": 4,
+                "source_id": "P01",
+                "fact_id": "F01"
+              },
+              {
+                "id": "S3",
+                "visual": "回到字幕样例全景",
+                "narration": "这就是本次的字幕展示。",
+                "subtitle": "支持字幕",
+                "hold_seconds": 4,
+                "source_id": "P01",
+                "fact_id": "F01"
+              }
+            ]
+          }
+        },
+        "observation": {
+          "ok": false,
+          "data": null,
+          "error": {
+            "code": "TOOL_UNAVAILABLE",
+            "message": "Explicit injected failure",
+            "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf"
+          }
+        }
+      },
+      {
+        "tool": "estimate_duration",
+        "arguments": {
+          "draft": {
+            "scenes": [
+              {
+                "fact_id": "F01",
+                "hold_seconds": 4,
+                "id": "S1",
+                "narration": "先看画面，再看文字。",
+                "source_id": "P01",
+                "subtitle": "支持字幕",
+                "visual": "展示提供的字幕样例"
+              },
+              {
+                "fact_id": "F01",
+                "hold_seconds": 4,
+                "id": "S2",
+                "narration": "看看这个字幕样例。",
+                "source_id": "P01",
+                "subtitle": "支持字幕",
+                "visual": "近景展示字幕文字"
+              },
+              {
+                "fact_id": "F01",
+                "hold_seconds": 4,
+                "id": "S3",
+                "narration": "这就是本次的字幕展示。",
+                "source_id": "P01",
+                "subtitle": "支持字幕",
+                "visual": "回到字幕样例全景"
+              }
+            ],
+            "title": "字幕功能演示"
+          }
+        },
+        "observation": {
+          "ok": false,
+          "data": null,
+          "error": {
+            "code": "TOOL_UNAVAILABLE",
+            "message": "Explicit injected failure",
+            "draft_id": "48634dcabbde27cc4ce5f1cfcb9b01094874ad38f2f184c4217a4eba913334cf"
+          }
+        }
+      }
+    ],
+    "published": false
+  }
+}
